@@ -22,7 +22,6 @@ exports.findUserProfileById = (req, res) => {
 
 exports.updateUserProfile = (req, res) => {
     // const user = await User.findById(req.user._id);
-    let updatedUserInfo = null;
     User.findById(req.body._id).exec((err, userInfo) => {
         if (err || !userInfo) {
             return res.status(400).json({ error: err });
@@ -35,7 +34,6 @@ exports.updateUserProfile = (req, res) => {
                 userInfo.password = userInfo.encryptPassword(req.body.password)
             }
             userInfo.save();
-            console.log(userInfo)
         }
         res.json({ status: 204, data: userInfo });
     });

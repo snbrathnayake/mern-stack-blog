@@ -9,6 +9,7 @@ const dbconnect = require('./configs/dbcon');
 const index = require('./routes');
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
+const postRoutes = require('./routes/blogpostRoutes');
 
 //** Connect to database
 dbconnect();
@@ -30,7 +31,7 @@ if (process.env.NODE_ENV === 'development') {
 app.use('/', index);
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
-// app.use('/api/blogs', blogRoutes);
+app.use('/api/posts', postRoutes);
 
 
 const PORT = process.env.SERVER_PORT || 5000;

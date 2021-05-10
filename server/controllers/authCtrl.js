@@ -23,21 +23,23 @@ exports.signup = (req, res) => {
             res.json({
                 user: data,
                 status: 201,
-                message: 'new account successfully created!.'
+                message: 'New account successfully created!.'
             })
         })
     });
 };
 
 exports.signin = (req, res) => {
+
     const { email, password } = req.body;
     User.findOne({ email }).exec((err, userInfo) => {
         if (err || !userInfo) {
-            return res.status(400).json({ error: `User with ${req.body.email} does not exist. Please signup.` });
+            return res.send({ error: `User with ${req.body.email} does not exist. Please signup.` });
         }
         // authenticate userInfo
         if (!userInfo.authenticated(password)) {
-            return res.status(400).json({ error: `${email} and ${password} do not mathch.` })
+            // return res.status(403).json({ error: `${req.body.email} and ${req.body.password} do not mathch.` });
+            return res.send({ error: `${req.body.email} and password do not mathch.` });
         }
         //generate a token & send to client.
         // const token = jwt.sign({ _id: userInfo._id }, process.env.JWT_SECRET, { expiresIn: '7h' });
@@ -54,5 +56,5 @@ exports.isAuth = expressJwt({ secret: process.env.JWT_SECRET, algorithms: ['sha1
 
 exports.signout = (req, res) => {
     res.clearCookie('token');
-    res.json({ message: `sign out successful` });
+    res.json({ message: `Sign out successful` });
 };

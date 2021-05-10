@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server/app.js",
     "server": "nodemon server/app.js",
-    "client": "npm start --prefix client ",
+    "client": "npm run client --prefix client ",
     "dev": " concurrently \"npm run server\" \"npm run client\" "
   },
   "author": "author@gmail.com",

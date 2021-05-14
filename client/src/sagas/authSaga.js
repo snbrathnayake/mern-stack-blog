@@ -12,7 +12,7 @@ function* siginActionRequest(payload) {
         yield put(actions.signinError(data.error));
     } else {
         yield put(actions.signinSuccessInfo(data));
-        localStorage.setItem('userInfo', JSON.stringify(data));
+        localStorage.setItem("userInfo", JSON.stringify(data));
     }
 }
 
@@ -30,10 +30,8 @@ function* sigupActionRequest(payload) {
 }
 
 function* signoutActionRequest() {
-    const response = yield call(service.signout);
-    if(response['status'] === 200) {
-        localStorage.removeItem('userInfo');
-    }
+    yield call(service.signout);
+    localStorage.removeItem("userInfo");
 }
 
 /*watcher saga*/

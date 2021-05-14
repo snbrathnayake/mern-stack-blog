@@ -42,13 +42,20 @@ body {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 2rem;
+    /* z-index: 2; */
 }
 
+
+
 /* Common */
+hr {
+    margin: 2rem 0;
+    color: #123455 !important;
+}
 
 a {
     text-decoration: none;
-    color: #212a36;
+    color: rgba(0, 0, 0, 0.1);
 }
 
 a:hover {
@@ -113,6 +120,11 @@ button.block {
 
 button.small {
     font-size: 1.2rem;
+    padding: 0.7rem 1rem;
+}
+
+button.small.round {
+    border-radius: 0.4rem;
 }
 
 button.primary:hover,
@@ -149,6 +161,10 @@ button.small:hover {
     margin: 1rem;
 }
 
+.col-3 {
+    flex: 3 1 80rem;
+    margin: 1rem;
+}
 
 
 
@@ -221,6 +237,7 @@ header {
 
 #userLoggedName {
     text-transform: capitalize;
+    color: var(--text-color);
 }
 
 /* dropdown */
@@ -228,9 +245,9 @@ header {
     display: inline-block;
     position: relative;
     transition: all 0.5s;
-  }
-  
-  .dropdown-content {
+}
+
+.dropdown-content {
     position: absolute;
     display: none;
     right: 0;
@@ -247,24 +264,25 @@ header {
     font-size: 1.375rem;
     letter-spacing: 1px;
 
-    border:1px solid #eee;
+    border: 1px solid #eee;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1)
-  }
-  
-  .dropdown-content .dropdown-link {
+}
+
+.dropdown-content .dropdown-link {
     display: block;
     padding: 1rem 2rem;
     border-bottom: 1px dotted #f4f4f4;
-  }
-  
-  .dropdown:hover .dropdown-content,
-  .dropdown-content:hover {
+    color: var(--text-color);
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown-content:hover {
     display: block;
-  }
-  
+}
 
 
-  
+
+
 @media only screen and (max-width: 768px) {
     .mobile-menu {
         display: flex;
@@ -277,8 +295,10 @@ header {
         justify-content: flex-start;
         position: absolute;
         top: 70px;
-        right: 0;
-        transform: translateX(110%);
+        right: -2rem;
+        margin: 0;
+        padding: 0;
+        transform: translateX(100%);
         height: 100vh;
         width: 60%;
         background-color: #272744;
@@ -287,7 +307,7 @@ header {
     }
 
     .nav-list-content.active {
-        transform: translateX(15%);
+        transform: translateX(0%);
     }
 
     .nav-list-content .nav-item {
@@ -297,7 +317,7 @@ header {
         border-bottom: 1px solid #202038;
     }
 
-    .nav-item .nav-link{
+    .nav-item .nav-link {
         color: #fff;
         letter-spacing: 1px;
         font-size: 1.75rem;
@@ -308,12 +328,13 @@ header {
     i.fa-caret-down {
         color: #fff;
     }
+
     .dropdown-link.admin {
         color: #fff;
     }
 
     #userLoggedName {
-        color: #fff;
+        color: #fff !important;
     }
 }
 
@@ -327,6 +348,10 @@ header {
     max-width: 50rem;
     margin: 0rem auto;
     margin-top: 7rem;
+}
+
+.form-lg {
+    max-width: 70rem !important;
 }
 
 .form h2 {
@@ -395,4 +420,328 @@ header {
 .alert-success {
     color: #1b381b;
     background-color: #c9f8c9;
+}
+
+/* 
+--------------------------------------------------
+    USER PROFILE
+--------------------------------------------------
+*/
+
+.profile-photo {
+    width: 100%;
+    height: 30rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #f4f4f4;
+}
+
+.profile-photo i {
+    font-size: 20rem;
+    color: #cbcbce;
+}
+
+.profile-content {
+    height: 30rem;
+    width: 100%;
+    border: 1px solid #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: flex-start;
+}
+
+.profile-item {
+    padding: 1rem 0.5rem;
+    margin: 0 1rem;
+}
+
+.profile-item span {
+    display: inline-block;
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    color: #436480;
+    margin-right: 1rem;
+    min-width: 15rem
+}
+
+.profile-item i {
+    margin: 0 1rem;
+    color: var(--gold-color);
+    cursor: pointer;
+}
+
+/* 
+-------------------------------------------------------
+            CARD BOX
+-------------------------------------------------------
+*/
+img.medium {
+    max-width: 100%;
+    max-height: 24rem;
+    min-height: 24rem;
+    width: 100%;
+    /* height: 100%; */
+    object-fit: cover;
+    object-position: top;
+}
+
+img.large {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.post-block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.card {
+    box-sizing: border-box;
+    border: 0.1rem #e6e6e6 solid;
+    background-color: #f8f8f8;
+    border-radius: 0.5rem;
+    margin: 1rem;
+    max-width: 70rem;
+    height: 45rem;
+
+    position: relative;
+
+    animation: mymove 0.5s forwards;
+}
+
+@keyframes mymove {
+    from {
+        left: -100px;
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        left: 0px;
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.card .card-photo {
+    width: 100%;
+    height: 20rem;
+    position: relative;
+}
+
+.card .card-photo .tags {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: var(--gold-color);
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    letter-spacing: 2px;
+    /* border-radius: 0.5rem 0 0 0; */
+}
+
+.card-body>div {
+    padding-bottom: 0.5rem;
+}
+
+
+.card-body h1 {
+    text-transform: capitalize;
+    color: var(--text-color);
+    font-size: 1.7rem;
+}
+
+.card-body h4 {
+    text-transform: capitalize;
+    font-size: 1.475rem;
+    font-weight: 500;
+    padding: 0.5rem 0rem 1rem;
+}
+
+.card-body p {
+    font-size: 1.4rem;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2%;
+}
+
+.card-footer>div {
+    padding: 0 0.5rem;
+}
+
+.card-footer .notify {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment-box {
+    margin-left: 1rem;
+}
+
+.side-section {
+    padding: 0.5rem;
+}
+
+.side-section .side-box {
+    margin-bottom: 5rem;
+    padding: 1rem;
+}
+
+.side-section .side-box h1 {
+    margin-bottom: 1rem;
+    font-size: 2.75rem;
+    display: block;
+}
+
+.side-section .side-box ul li {
+    margin-bottom: 1rem;
+    padding: 1rem 0;
+    font-size: 1.8rem;
+    display: block;
+    border-bottom: 1px dotted #d8d8d8;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+.side-section .side-box ul li:hover {
+    color: var(--gold-color);
+}
+
+
+.instagram-grid {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.instagram-grid .photo-box {
+    flex: 1 1 300px;
+    height: 12rem;
+    background-color: #f4f4f4;
+    margin: 0.5rem;
+    padding: 0.3rem;
+}
+
+.photo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.top-post-list li {
+    border-bottom: 1px solid #eee;
+    margin: 1rem 0;
+    padding: 3rem 0;
+}
+
+.single-post {
+    padding: 2rem;
+}
+
+.single-post h1 {
+    font-size: 4.25rem;
+    text-transform: capitalize;
+    color: var(--text-color);
+    margin: 1rem 0 3rem 0;
+    display: block;
+}
+
+.single-post img {
+    max-height: 80%;
+    width: 100%;
+}
+
+.single-post .timestamp {
+    margin: 1rem 0;
+    display: block;
+}
+
+.single-post .timestamp span {
+    padding: 0.7rem 1rem;
+    background: whitesmoke;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+}
+
+.single-post .decription {
+    margin: 2rem 0;
+    padding: 0.2rem;
+    display: block;
+}
+
+.single-post h2 {
+    font-size: 1.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-color: var(--gold-color);
+    display: inline-block;
+    padding: 0.2rem 1rem;
+    color: white;
+    border-radius: 3px 3px 0 0;
+}
+
+
+.single-post-comments ul {
+    margin: 2rem 0;
+}
+
+.single-post-comments ul li {
+    width: 100%;
+    padding: 1rem 1rem;
+    font-size: 1.5rem;
+    font-style: normal;
+    color: var(--text-href-color);
+    background: #f7f7ff;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+}
+
+.single-post-comments textarea {
+    border: 1px solid #f4f4f4;
+    width: 100%;
+}
+
+.single-post-comments form {
+    margin: 2rem 0;
+}
+
+@media only screen and (max-width: 768px) {
+    .single-post h1 {
+        font-size: 2.75rem;
+    }
+
+}
+
+@media only screen and (max-width: 500px) {
+    .single-post h1 {
+        font-size: 2rem;
+    }
+
 }

@@ -36,7 +36,6 @@ class LoginScreen extends React.Component {
         })
     }
 
-
     render() {
         const { email, password } = this.state;
         const { loading, error } = this.props.user;

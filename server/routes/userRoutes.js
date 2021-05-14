@@ -11,7 +11,7 @@ const {
 
 router.get('/profile', isAuth, findUserProfile);
 router.put('/profile', isAuth, updateUserProfile);
-router.get('/profile/:id', isAuth, findUserProfileById);
+router.get('/profile/:username', isAuth, findUserProfileById);
 
 
 module.exports = router;

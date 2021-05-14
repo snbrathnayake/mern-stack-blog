@@ -10,7 +10,7 @@ exports.findUserProfile = (req, res) => {
 };
 
 exports.findUserProfileById = (req, res) => {
-    const query = User.where({ _id: req.params.id }); // <-- Use the correct param name
+    const query = User.where({ username: req.params.username }); // <-- Use the correct param name
     query.findOne(function (err, user) {
         if (err) {
             return res.status(404).json({ error: 'not found' })

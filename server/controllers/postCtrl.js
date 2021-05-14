@@ -34,7 +34,7 @@ exports.createPost = (req, res) => {
 };
 
 exports.updatePost = (req, res) => {
-    console.log(req.body)
+
     Post.findById(req.body._id).exec((err, post) => {
         if (err || !post) {
             return res.status(400).json({ error: err });
@@ -80,9 +80,13 @@ exports.findPostsByCategoryType = (req, res) => {
 
 };
 
-exports.findPostsById = (req, res) => {
-
+exports.findPostById = (req, res) => {
+    Post.findById(req.params.id).exec((err, post) => {
+        if (err || !post) {
+            return res.status(400).json({ error: err });
+        }
+        
+        res.json(post);
+    });
 }
 
-
-exports.findPostsByUserId = (req, res) => { }

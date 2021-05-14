@@ -12,7 +12,8 @@ const {
     fetchBlogPosts,
     createPost,
     updatePost,
-    deletePost
+    deletePost,
+    findPostById
 } = require('../controllers/postCtrl');
 
 
@@ -20,6 +21,7 @@ router.get('/', fetchBlogPosts);
 router.post('/create', isAuth, createPost);
 router.put('/update', isAuth, updatePost);
 router.delete('/delete/:id', isAuth, deletePost);
+router.get('/find/:id', findPostById);
 
 // comments[] for a post
 router.get('/comment/get/:id', getPostComments);

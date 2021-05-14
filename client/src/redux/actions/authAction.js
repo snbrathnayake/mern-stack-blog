@@ -43,18 +43,9 @@ export function signupError(error) {
     }
 };
 
-
-
 export function signOut() {
     return {
         type: types.USER_SIGNOUT,
     }
 };
 
-
-// export function signoutDone(status) {
-//     return {
-//         type: types.USER_SIGNOUT_DONE,
-//         status
-//     }
-// };

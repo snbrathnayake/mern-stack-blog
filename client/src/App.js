@@ -7,6 +7,8 @@ import HomeScreen from 'screens/Home';
 import SigninScreen from 'screens/Login';
 import SignupScreen from 'screens/Signup';
 import ProfileScreen from 'screens/Profile';
+import CreatePostScreen from 'screens/CreatePost';
+import SinglePostScreen from 'screens/SinglePost';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route path="/login" component={SigninScreen} />
         <Route path="/signup" component={SignupScreen} />
         <Route path="/profile/:username" component={ProfileScreen} />
+        <Route path="/new-post" component={CreatePostScreen} />
+        <Route path="/blog-content/:id" component={SinglePostScreen} />
       </Switch>
     </Router>
   );

@@ -1,4 +1,12 @@
-import { USER_REGISTER_FAIL, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS, USER_SIGNIN_FAIL, USER_SIGNIN_REQUEST, USER_SIGNIN_SCUCCESS, USER_SIGNOUT } from "constants/authConstants";
+import {
+    USER_REGISTER_FAIL,
+    USER_REGISTER_REQUEST,
+    USER_REGISTER_SUCCESS,
+    USER_SIGNIN_FAIL,
+    USER_SIGNIN_REQUEST,
+    USER_SIGNIN_SCUCCESS,
+    USER_SIGNOUT
+} from "constants/authConstants";
 
 
 export const userSigninReducer = (state = { loading: false, userInfo: {}, error: null }, action) => {
